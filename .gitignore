@@ -59,3 +59,7 @@ typings/
 
 # SSL certificate
 cert/
+
+# Domains
+domains/*
+!domains/demo
