@@ -14,7 +14,11 @@ const expressServer = express();
 createServer(expressServer).listen(3000, err => {
     expressServer.use((req, res) => {
         const { pathname } = parse(req.url, true);
-        const match = route('/.well-known/acme-challenge/:token')(pathname);
-        app(req, res, match);
+        if (pathname === '/') {
+            res.sendStatus(200);
+        } else {
+            const match = route('/.well-known/acme-challenge/:token')(pathname);
+            app(req, res, match);
+        }
     });
 });

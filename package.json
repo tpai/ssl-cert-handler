@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "auth": "sh scripts/run.sh"
+    "ecs": "export HASH=cli-$(git rev-parse HEAD | cut -c1-6) && ./deploy_man.sh"
   },
   "keywords": [],
   "author": "",
