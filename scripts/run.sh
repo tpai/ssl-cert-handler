@@ -22,3 +22,5 @@ sudo certbot certonly --manual \
     --debug \
     --staging \
     $TARGETS
+
+mkdir -p cert && sudo cp -r /etc/letsencrypt/live/$FIRST_DOMAIN cert/$FIRST_DOMAIN
