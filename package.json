@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "auth": "sh scripts/index.sh",
-    "renew": "sudo cerbot renew --dry-run",
+    "renew": "sudo certbot renew --dry-run",
     "ecs": "export HASH=cli-$(git rev-parse HEAD | cut -c1-6) && ./deploy_man.sh"
   },
   "keywords": [],

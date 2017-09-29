@@ -18,11 +18,10 @@ module.exports = (req, res, match) => {
         dynamodb.getItem(
             { Key: { [DYNAMODB_SEARCH_KEY]: { S: match.token } }, TableName: DYNAMODB_TABLE },
             (err, data) => {
-                if (err) {
+                if (err)
                     res.status(404).send(err);
-                }
                 else
-                    res.send(data.Item[DYNAMODB_VALUE_KEY].S);
+                    res.status(200).send(data.Item[DYNAMODB_VALUE_KEY].S);
             }
         );
     } else {
