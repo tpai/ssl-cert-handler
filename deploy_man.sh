@@ -38,7 +38,6 @@ function define_task
             ],
             \"name\": \"web\",
             \"environment\": [
-                { \"name\": \"EMAIL\", \"value\": \"$EMAIL\" },
                 { \"name\": \"AWS_ACCESS_KEY_ID\", \"value\": \"$AWS_ACCESS_KEY_ID\" },
                 { \"name\": \"AWS_SECRET_ACCESS_KEY\", \"value\": \"$AWS_SECRET_ACCESS_KEY\" },
                 { \"name\": \"AWS_REGION\", \"value\": \"$AWS_REGION\" },
