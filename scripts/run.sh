@@ -13,20 +13,11 @@ function certbot
         TARGETS="-d ${DOMAINS[$i]} $TARGETS"
     done
 
-    echo "FIRST_DOMAIN=$FIRST_DOMAIN"
-    echo "DOMAINS=$TARGETS"
-
-    sudo certbot certonly --manual \
-        --preferred-challenges http \
-        --email $EMAIL \
-        --agree-tos \
-        --manual-public-ip-logging-ok \
-        --manual-auth-hook scripts/auth.sh \
-        --renew-by-default \
-        --expand \
-        --debug \
-        --staging \
-        $TARGETS
+    if [ "$2" == "production" ]; then
+        sudo certbot certonly --manual --preferred-challenges http --email $EMAIL --agree-tos --manual-public-ip-logging-ok --manual-auth-hook scripts/auth.sh --renew-by-default --expand --debug $TARGETS
+    else
+        sudo certbot certonly --manual --preferred-challenges http --email $EMAIL --agree-tos --manual-public-ip-logging-ok --manual-auth-hook scripts/auth.sh --renew-by-default --expand --debug --staging $TARGETS
+    fi
 
     mkdir -p cert && sudo cp -r /etc/letsencrypt/live/$FIRST_DOMAIN cert/
 }

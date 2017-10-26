@@ -26,10 +26,10 @@ example.com
 **Request cert**
 
 ```
-yarn auth domains/myList
+yarn auth domains/myList [production]
 ```
 
-If success, certificate will present in `cert/demo.com/`.
+You could pass `production` at the second argument, then certbot will disable staging environment.
 
 **Renew cert**
 

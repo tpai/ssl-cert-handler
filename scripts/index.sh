@@ -14,4 +14,4 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     RESULT="$RESULT,$line"
 done < "$1"
 
-certbot $RESULT
+certbot $RESULT $2
